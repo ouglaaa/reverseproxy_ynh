@@ -23,6 +23,7 @@ ynh_abort_if_errors
 app=$YNH_APP_INSTANCE_NAME
 old_domain=$YNH_APP_OLD_DOMAIN
 new_domain=$YNH_APP_NEW_DOMAIN
+proxy_path=$YNH_APP_ARG_PROXY_PATH
 old_path=$YNH_APP_OLD_PATH
 new_path=$YNH_APP_NEW_PATH
 
@@ -37,7 +38,7 @@ ynh_script_progression --message="Configuring NGINX web server..." --weight=1
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 path_url="$new_path"
 domain="$old_domain"
-proxy_path="$(ynh_app_setting_get --app=$app --key=proxy_path)"
+proxy_path="$proxy_path"
 assets_path="$(ynh_app_setting_get --app=$app --key=assets_path)"
 
 # Validate reverse proxy destination
